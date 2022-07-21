@@ -21,7 +21,7 @@ public class User {
     private String username;
     private String userServerName;
     private Long countMassageOnServer;
-    private Long countUpdateMassageInServer;
+//    private Long countUpdateMassageInServer;
     private Long ballCringe;
     private Long ballBayan;
     private Long ballBadJoke;
@@ -33,4 +33,36 @@ public class User {
     private String urlPhotoProfile;
     private String ranked;
     private Long countPook;
+
+    @Override
+    public String toString() {
+        return "Расклад по тебе такой " +
+                "," +
+                " твое имя = " + username +
+                "," +
+                " Твоя кликуха на сервере = " + userServerName +
+                "," +
+                " количество сообщений на сервере = " + countMassageOnServer +
+                "," +
+                " балы за кринж = " + ballCringe +
+                "," +
+                " балы за баян = " + ballBayan +
+                "," +
+                " плохих шуток  = " + ballBadJoke +
+                "," +
+                " респект за шутки = " + ballGoodJoke +
+                "," +
+                "  сколько раз победил в кастомке = " + ballWinnerCustomGame +
+                "," +
+                " сколько раз проиграл в кастомке = " + ballFailCustomerGame +
+                "," +
+                " сколько мамок отжарил = " + ballFuckYourMam +
+                "," +
+                " кликуха по жизни = " + pogonialo +
+                "," +
+                " ты по жизни = " + ranked +
+                "," +
+                " смачных пердежей = " + + countPook +
+                     urlPhotoProfile;
+    }
 }

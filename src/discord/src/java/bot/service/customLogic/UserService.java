@@ -6,6 +6,8 @@ import bot.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.regex.Pattern;
+
 @Service
 public class UserService {
 
@@ -16,13 +18,14 @@ public class UserService {
         var userEntity1 = userDao.findByUsername(user.getUsername());
         if (userEntity1 == null) {
             User userEntity = new User();
+            userEntity.setServerId(user.getId().asLong());
             userEntity.setUsername(user.getUsername());
             userEntity.setRanked(Rank.FRAER.getRank());
             userEntity.setUrlPhotoProfile(user.getAvatarUrl());
-            userEntity.setCountUpdateMassageInServer(1L);
+//            userEntity.setCountUpdateMassageInServer(1L);
             userEntity.setUserServerName(user.getUserData().username());
             userEntity.setCountMassageOnServer(1L);
-            userEntity.setCountUpdateMassageInServer(0L);
+//            userEntity.setCountUpdateMassageInServer(0L);
             userEntity.setBallCringe(0L);
             userEntity.setBallBayan(0L);
             userEntity.setBallBadJoke(0L);
@@ -44,13 +47,25 @@ public class UserService {
 
     public String switchContainer(discord4j.core.object.entity.User user, String content) {
 
+        Pattern pattern = Pattern.compile("\\d{18}", Pattern.CASE_INSENSITIVE);
+
         if (content != null) {
-            switch (content) {
-                case ("Мой ранг"):
+            switch (content.toLowerCase()) {
+                case ("даник мой ранг"):
                     String name = user.getUsername();
                     return  (name + " по жизни " + userDao.findByUsername(name).getRanked());
+                case ("даник дай расклад по мне"):
+                    return userDao.findByUsername(user.getUsername()).toString();
+                case ("бля"):
+
+
+                    return "бля";
             }
         }
         return null;
+    }
+    public void assistantToServerId(String content){
+
+      //  userDao.findByServerId()
     }
 }
