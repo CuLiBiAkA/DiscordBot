@@ -33,36 +33,40 @@ public class User {
     private String urlPhotoProfile;
     private String ranked;
     private Long countPook;
+    private Long respect;
 
     @Override
     public String toString() {
         return "Расклад по тебе такой " +
                 "," +
-                " твое имя = " + username +
-                "," +
-                " Твоя кликуха на сервере = " + userServerName +
-                "," +
-                " количество сообщений на сервере = " + countMassageOnServer +
-                "," +
-                " балы за кринж = " + ballCringe +
-                "," +
-                " балы за баян = " + ballBayan +
-                "," +
-                " плохих шуток  = " + ballBadJoke +
-                "," +
-                " респект за шутки = " + ballGoodJoke +
-                "," +
-                "  сколько раз победил в кастомке = " + ballWinnerCustomGame +
-                "," +
-                " сколько раз проиграл в кастомке = " + ballFailCustomerGame +
-                "," +
-                " сколько мамок отжарил = " + ballFuckYourMam +
-                "," +
-                " кликуха по жизни = " + pogonialo +
-                "," +
-                " ты по жизни = " + ranked +
-                "," +
-                " смачных пердежей = " + + countPook +
+                " твое имя  " + username +
+                "\n" +
+                " уважение : " + respect +
+                "\n" +
+                " Твоя кликуха на сервере  " + userServerName +
+                "\n" +
+                " количество сообщений на сервере : " + countMassageOnServer +
+                "\n" +
+                " балы за кринж : " + ballCringe +
+                "\n" +
+                " балы за баян : " + ballBayan +
+                "\n" +
+                " плохих шуток  : " + ballBadJoke +
+                "\n" +
+                " респект за шутки : " + ballGoodJoke +
+                "\n" +
+                "  сколько раз победил в кастомке : " + ballWinnerCustomGame +
+                "\n" +
+                " сколько раз проиграл в кастомке : " + ballFailCustomerGame +
+                "\n" +
+                " сколько мамок отжарил : " + ballFuckYourMam +
+                "\n" +
+                " кликуха по жизни : " + pogonialo +
+                "\n" +
+                " ты по жизни : " + ranked +
+                "\n" +
+                " смачных пердежей : " + + countPook +
+                "\n" +
                      urlPhotoProfile;
     }
 }
