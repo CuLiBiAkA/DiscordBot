@@ -17,7 +17,7 @@ public abstract class MessageListener {
                 .map(message -> processorsMassage.getProcessor(message)) // Каждое смс прогоняет через мой обработчик
                 .filter(message -> processorsMassage.stringProcessor()!=null) // Проверяет если команды не валидны
                 .flatMap(Message::getChannel) // берет все каналы дискорд
-                .flatMap(channel -> (channel.createMessage(processorsMassage.stringProcessor()))) // если все пиздато до этого было выдает сообщение исходя из входящих данных в месенжере
+                .flatMap(channel -> (channel.createMessage(processorsMassage.kostiliFormasseg()))) // если все пиздато до этого было выдает сообщение исходя из входящих данных в месенжере
                 .then();
     }
 }

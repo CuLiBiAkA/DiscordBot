@@ -12,7 +12,8 @@ public enum Rank {
     GAY("ЧУВАК"),
     FRAER("ФРАЕР"),
     HUILO("ХУЙЛО"),
-    SLADKAIYAPOPKA("СЛАДЕНЬКИЙ");
+    SLADKAIYAPOPKA("СЛАДЕНЬКИЙ"),
+    ROVNYI("РОВНЫЙ ПОЦ");
 
     private String rank;
     Rank(String rank){

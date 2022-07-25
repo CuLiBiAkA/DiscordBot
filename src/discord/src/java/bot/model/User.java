@@ -39,33 +39,34 @@ public class User {
     public String toString() {
         return "Расклад по тебе такой " +
                 "," +
-                " твое имя  " + username +
+                "твое имя  " + username +
                 "\n" +
-                " уважение : " + respect +
+                "уважение : " + respect +
                 "\n" +
-                " Твоя кликуха на сервере  " + userServerName +
+                "твоя кликуха на сервере  " + userServerName +
                 "\n" +
-                " количество сообщений на сервере : " + countMassageOnServer +
+                "количество сообщений на сервере : " + countMassageOnServer +
                 "\n" +
-                " балы за кринж : " + ballCringe +
+                "балы за кринж : " + ballCringe +
                 "\n" +
-                " балы за баян : " + ballBayan +
+                "балы за баян : " + ballBayan +
                 "\n" +
-                " плохих шуток  : " + ballBadJoke +
+                "плохих шуток  : " + ballBadJoke +
                 "\n" +
-                " респект за шутки : " + ballGoodJoke +
+                "респект за шутки : " + ballGoodJoke +
                 "\n" +
-                "  сколько раз победил в кастомке : " + ballWinnerCustomGame +
+                "смачных пердежей : " + + countPook +
                 "\n" +
-                " сколько раз проиграл в кастомке : " + ballFailCustomerGame +
+                "сколько раз победил в кастомке : " + ballWinnerCustomGame +
                 "\n" +
-                " сколько мамок отжарил : " + ballFuckYourMam +
+                "сколько раз проиграл в кастомке : " + ballFailCustomerGame +
                 "\n" +
-                " кликуха по жизни : " + pogonialo +
+                "сколько мамок отжарил : " + ballFuckYourMam +
                 "\n" +
-                " ты по жизни : " + ranked +
+                "кликуха по жизни : " + pogonialo +
                 "\n" +
-                " смачных пердежей : " + + countPook +
+                "ты по жизни : " + ranked +
+                "\n" +
                 "\n" +
                      urlPhotoProfile;
     }

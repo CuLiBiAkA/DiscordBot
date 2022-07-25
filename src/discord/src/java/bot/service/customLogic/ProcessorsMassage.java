@@ -15,6 +15,8 @@ public class ProcessorsMassage {
     User user;
     String content;
 
+    String massage;
+
     public Message getProcessor(Message message) {
         var user1 = message.getAuthor().get();
         var content1 = message.getContent();
@@ -27,6 +29,12 @@ public class ProcessorsMassage {
     }
 
     public String stringProcessor() {
-       return userService.switchContainer(user,content);
+        massage = userService.switchContainer(user,content);
+       return massage;
+    }
+
+
+    public String kostiliFormasseg(){
+        return massage;
     }
 }
