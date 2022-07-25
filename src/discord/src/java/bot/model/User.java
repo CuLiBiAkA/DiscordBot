@@ -21,7 +21,7 @@ public class User {
     private String username;
     private String userServerName;
     private Long countMassageOnServer;
-//    private Long countUpdateMassageInServer;
+    private Long countUpdateMassageInServer;
     private Long ballCringe;
     private Long ballBayan;
     private Long ballBadJoke;

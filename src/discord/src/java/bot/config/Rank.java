@@ -7,7 +7,7 @@ public enum Rank {
     JOKER("ШУТНИК"),
     CHEPUSHILA("ЧЕПУШИЛА"),
     VAFLER("ВАФЛЕР"),
-    KILLER("КИЛЛЕР"),
+    KILLER("МУЖЧИНА"),
     MAMKAEB("МАМКАЕБ"),
     GAY("ЧУВАК"),
     FRAER("ФРАЕР"),

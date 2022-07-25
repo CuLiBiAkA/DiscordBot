@@ -5,13 +5,15 @@ public enum Сommand {
     IZADANYCOM("язадаником"),
     STATA("!статистика"),
     CLEAN("!сброс"),
-    WINNER("!победа+"),
-    FAIL("!поражение-"),
+    WINNER("!кастомка+"),
+    FAIL("!кастомка-"),
     CRING("!кринж"),
     BADJOKE("!шутка-"),
     GOODJOKE("!шутка+"),
     RANG("!ранг"),
     EBALMAMKU("!мамкаеб"),
+
+    OHUEVSHAIA("!охуевшая"),
 
     POOK("!засранец");
 

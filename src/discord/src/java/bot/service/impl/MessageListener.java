@@ -13,7 +13,7 @@ public abstract class MessageListener {
 
     public Mono<Void> processCommand(Message eventMessage) {
         return Mono.just(eventMessage)
-//                .filter(message -> message.getAuthor().map(user -> !user.isBot()).orElse(false)) //проверяет что это пишет не бот
+                .filter(message -> message.getAuthor().map(user -> !user.isBot()).orElse(false)) //проверяет что это пишет не бот
                 .map(message -> processorsMassage.getProcessor(message)) // Каждое смс прогоняет через мой обработчик
                 .filter(message -> processorsMassage.stringProcessor()!=null) // Проверяет если команды не валидны
                 .flatMap(Message::getChannel) // берет все каналы дискорд

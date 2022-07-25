@@ -2,8 +2,11 @@ package bot.service.customLogic;
 
 import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.User;
+import discord4j.core.object.presence.ClientActivity;
+import discord4j.core.object.presence.Presence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class ProcessorsMassage {
@@ -17,15 +20,16 @@ public class ProcessorsMassage {
 
     String massage;
 
-    public Message getProcessor(Message message) {
-        var user1 = message.getAuthor().get();
-        var content1 = message.getContent();
-        var massageData = message.getData();
-        var reactionList = message.getReactions();
+    public Message getProcessor(Message messagForDiscord) {
+        var user1 = messagForDiscord.getAuthor().get();
+        var content1 = messagForDiscord.getContent();
+        var massageData = messagForDiscord.getData();
+        var reactionList = messagForDiscord.getReactions();
+
         userService.saveUser(user1);
         user=user1;
         content=content1;
-        return message;
+        return messagForDiscord;
     }
 
     public String stringProcessor() {

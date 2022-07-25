@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -51,6 +52,7 @@ public class UserService {
             userEntity.setBallBadJoke(0L);
             userEntity.setBallGoodJoke(0L);
             userEntity.setBallWinnerCustomGame(0L);
+            userEntity.setCountUpdateMassageInServer(0L);
             userEntity.setBallFailCustomerGame(0L);
             userEntity.setBallFuckYourMam(0L);
             userEntity.setPogonialo("");
@@ -103,12 +105,35 @@ public class UserService {
             if (etalon.equals(Сommand.IZADANYCOM.getCommand())) {
                 return PRIVET;
             }
+            if (etalon.equals(Сommand.OHUEVSHAIA.getCommand())) {
+                var list = userDao.findAllByCountUpdateMassageInServer(0L);
+                StringBuilder s = new StringBuilder();
+                list.sort((o1, o2) -> o2.getRespect().compareTo(o1.getRespect()));
+                var countChar = list
+                        .stream()
+                        .map(user1 -> user1.getUserServerName()
+                                .chars()
+                                .count())
+                        .max(Comparator.naturalOrder())
+                        .get();
+                String sss = " ";
+                list.stream()
+                        .peek(user1 -> user1.setUserServerName(user1.getUserServerName()+sss.repeat((int) (countChar.intValue()-user1.getUserServerName().chars().count()))))
+                        .forEach(user1 -> s
+                                .append(user1.getUserServerName().toLowerCase())
+                                .append(" | ")
+                                .append(user1.getRespect().toString())
+                                .append("cm").append("\n"));
+                return s.toString();
+            }
         }
         return null;
     }
 
     public String switchContainerForUserDB(String content, Set<User> users) {
         for (User user : users) {
+            user.setRanked(countRaced(user.getRespect()));
+            userDao.save(user);
             content = content.replace(user.getServerId().toString(), "");
         }
         var etalon = content.toLowerCase().replace("<@", "").replace(">", "").replace(" ", "");
@@ -225,28 +250,28 @@ public class UserService {
     public String countRaced(Long repa) {
 
         if (repa > 31L) {
-           return Rank.KILLER.getRank();
+            return Rank.KILLER.getRank();
         }
         if (repa > 21L && repa < 30L) {
-            return  Rank.JOKER.getRank();
+            return Rank.JOKER.getRank();
         }
         if (repa > 11L && repa < 20L) {
-            return  Rank.SLADKAIYAPOPKA.getRank();
+            return Rank.SLADKAIYAPOPKA.getRank();
         }
         if (repa < 10L && repa > -10L) {
-            return  Rank.GAY.getRank();
+            return Rank.GAY.getRank();
         }
         if (repa < -11L && repa > -20L) {
-            return  Rank.CHEPUSHILA.getRank();
+            return Rank.CHEPUSHILA.getRank();
         }
         if (repa < -21L && repa > -30L) {
-            return   Rank.LOH.getRank();
+            return Rank.LOH.getRank();
         }
         if (repa < -31L && repa > -40L) {
-            return   Rank.CERT.getRank();
+            return Rank.CERT.getRank();
         }
         if (repa < -41L) {
-            return  Rank.VAFLER.getRank();
+            return Rank.VAFLER.getRank();
         }
         return "Агент Смит";
     }
